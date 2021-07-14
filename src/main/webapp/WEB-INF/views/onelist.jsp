@@ -30,6 +30,8 @@ $(function() {
 			  tbody +="<tr><th class='bg'>email</th><td>"+data["email"]+"</td></tr>";
 			  tbody +="<tr><td colspan='2' style='padding: 0px 50px;'><pre>"
 			 	 +data["content"]+"</pre></td></tr>";
+			  tbody +="<input type='hidden' name='idx' value='"+data["idx"]+"'>";	
+			  tbody +="<input type='hidden' name='pwd' value='"+data["pwd"]+"'>";
 		  $("#tbody").append(tbody);
 			
 		},
@@ -63,8 +65,6 @@ $(function() {
 						<td colspan="2">
 							<input type="button" value="수정" onclick="update_go(this.form)">
 							<input type="button"  value="삭제" onclick="delete_go(this.form)"> 
-							<input type="hidden" name="idx" value="${vo.idx}">
-							<input type="hidden" name="pwd" value="${vo.pwd}">
 						</td>
 					</tr>
 				</tfoot>

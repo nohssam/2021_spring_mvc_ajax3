@@ -29,13 +29,11 @@ public class MyDAOImpl implements MyDAO{
 	
 	@Override
 	public int deleteOne(String idx) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.delete("guestbook.delete",idx);
 	}
 	
 	@Override
 	public int updateOne(VO vo) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.update("guestbook.update", vo);
 	}
 }

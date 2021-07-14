@@ -18,7 +18,7 @@
 <script type="text/javascript">
 	function del_ok(f) {
 		// 비밀번호체크
-		if(f.pwd.value == "${vo.pwd}"){
+		if(f.pwd.value == "${pwd}"){
 			var chk = confirm("정말 삭제할까요?");
 			if(chk){
 				f.submit();
@@ -48,7 +48,7 @@
 					<tr>
 						<td colspan="2">
 							<input type="button" value="삭제" onclick="del_ok(this.form)">
-							<input type="hidden" name="idx" value="${vo.idx}">
+							<input type="hidden" name="idx" value="${idx}">
 						</td>
 					</tr>
 				</tfoot>

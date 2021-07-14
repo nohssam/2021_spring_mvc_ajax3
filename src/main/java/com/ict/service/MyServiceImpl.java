@@ -29,12 +29,10 @@ public class MyServiceImpl implements  MyService{
 	
 	@Override
 	public int deleteOne(String idx) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return myDAO.deleteOne(idx);
 	}
 	@Override
 	public int updateOne(VO vo) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return myDAO.updateOne(vo);
 	}
 }

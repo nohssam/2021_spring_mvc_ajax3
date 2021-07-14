@@ -65,6 +65,45 @@ public class MyController {
 		}
 		return null;
 	}
+	@RequestMapping("delete.do")
+	public ModelAndView deleteCommand(@ModelAttribute("idx")String idx,
+			@ModelAttribute("pwd")String pwd) {
+		return new ModelAndView("delete");
+	}
+	
+	@RequestMapping("delete_ok.do")
+	public ModelAndView deleteOKCommand(@RequestParam("idx")String idx) {
+		try {
+			int result = myServier.deleteOne(idx);
+			if(result>0) {
+				return new ModelAndView("list");
+			}
+		} catch (Exception e) {
+		}
+		return null;
+	}
+	@RequestMapping("update.do")
+	public ModelAndView updateCommand(@ModelAttribute("idx")String idx) {
+		try {
+			ModelAndView mv = new ModelAndView("update");
+			VO vo = myServier.selectOne(idx);
+			mv.addObject("vo", vo);
+			return mv;
+		} catch (Exception e) {
+		}
+		return null;
+	}
+	@RequestMapping("update_ok.do")
+	public ModelAndView updateOKCommand(VO vo) {
+		try {
+			int result = myServier.updateOne(vo);
+			if(result>0) {
+				return new ModelAndView("redirect:onelist.do?idx="+vo.getIdx());
+			}
+		} catch (Exception e) {
+		}
+		return null;
+	}
 }
 
 
